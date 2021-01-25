@@ -9,6 +9,11 @@
 # File name: diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
-git clone https://github.com/vernesong/OpenClash.git
+
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.22.1/g' package/base-files/files/bin/config_generate
+# 添加软件包
+git clone https://github.com/vernesong/OpenClash.git package/OpenClash
+# 更新
+./scripts/feeds update -a
+./scripts/feeds install -a
